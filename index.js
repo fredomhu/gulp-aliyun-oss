@@ -38,9 +38,8 @@ function oss(option) {
         };
         
         if(file.isBuffer()){
-          // console.log(filename);
           co(function* () {
-            var result = yield client.put(getFileKey(), file.contents, ossOpt);
+            var result = yield client.put(getFileKey(), file.path, ossOpt);
 			log('OK:', colors.green(filename));
             cb(null, file);
           })
